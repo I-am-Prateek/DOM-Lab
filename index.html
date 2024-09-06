@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Assignment-1</title>
+    <style>
+        h5{
+            font-size: 20px;
+        }
+         table, td{
+            border: 2px solid black;
+            font-size: 25px;
+        }
+        .mybtn{
+            width: 10%;
+            margin: 13px 0;
+            padding: 4px;
+            font-size: 20px;
+        }
+        #mymessage{
+            font-size: 3.5vh;
+        }
+    </style>
+</head>
+<body>
+    <h5> Creating a Table which inserts and delete the Row and Column</h6>
+        <p id="mymessage"></p>
+    <table id="thistable">
+        <tr>
+            <td>Row1 Col1</td> 
+            <td>Row1 Col2</td>
+        </tr>
+        <tr>
+            <td>Row2 Col1</td> 
+            <td>Row2 Col2</td>
+        </tr>
+        <tr>
+            <td>Row3 Col1</td> 
+            <td>Row3 Col2</td>
+        </tr>
+        <tr>
+            <td>Row4 Col1</td> 
+            <td>Row4 Col2</td>
+        </tr>
+        <tr>
+            <td>Row5 Col1</td> 
+            <td>Row5 Col2</td>
+        </tr>
+
+    </table>
+    <button class="mybtn" onclick="insertfunction()">Insert Row</button>
+    <button class="mybtn" onclick="deletefunction()">Delete Row</button>
+
+    <script>
+          rowCount=5;                 // This is to define I have 5 rows initially
+          secCount=5;
+          function insertfunction() {
+          var table = document.getElementById("thistable");
+          
+          var row = table.insertRow(-1);  // It inserts the row from the last most row
+          var Col1 = row.insertCell(0);
+          var Col2 = row.insertCell(1);
+          
+          rowCount++;
+          secCount++;
+          Col1.innerHTML = "Row" +rowCount+ " Col1";
+          Col2.innerHTML = "Row" +rowCount+ " Col2";
+          document.getElementById("mymessage").innerHTML = "";
+        }
+        
+        function deletefunction() {
+          secCount--
+          document.getElementById("thistable").deleteRow(0);
+            
+            if (secCount<1) {
+                document.getElementById("mymessage").innerHTML = "Message: No more rows to delete";
+            }
+        }
+    </script>
+</body>
+</html>
